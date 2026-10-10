@@ -86,7 +86,7 @@
   }
 
   // Set this to your deployed Vercel project URL before publishing.
-  const API_BASE_URL = "https://YOUR-VERCEL-PROJECT.vercel.app";
+  const API_BASE_URL = "https://cors-proxy-gold-iota.vercel.app";
 
   async function fetchAndDecode() {
     if (state.busy) return;
