@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f4">
+  <title>CodeHS Solution Helper</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="CodeHS Solution Helper home">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span>CodeHS <span class="brand-muted">Solution Helper</span></span>
+    </a>
+    
+  </header>
+
+  <main class="page-shell">
+    <section class="intro">
+      
+      <h1>Get your CodeHS code</h1>
+      
+    </section>
+
+    <section class="wizard-card" id="wizard-card" aria-labelledby="step-title">
+      <div class="progress-top">
+        <span id="step-counter">Step 1 of 3</span>
+        <span id="step-percent">33%</span>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Wizard progress" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" id="progress-bar">
+        <span id="progress-fill"></span>
+      </div>
+
+      <div class="step-panel" id="step-1" data-step="1">
+        <div class="step-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg"
+     height="24px"
+     viewBox="0 -960 960 960"
+     width="24px"
+     fill="#6b8f71">
+  <path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM440-162v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q41-45 62.5-100.5T800-480q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z"/>
+</svg>
+        </div>
+        <h2 id="step-title">Create Share Link</h2>
+        <p class="step-lead">Make the share link to your CodeHS program <strong>Public</strong>.</p>
+        <ol class="instruction-list">
+          <li><span class="number">1</span><span>Open the assignment/program in CodeHS.</span></li>
+          <li><span class="number">2</span><span>Open <strong>More</strong> &rightarrow; <strong>Share</strong></span></li>
+          <li><span class="number">3</span><span>Click <strong>Create Share Link</strong> and set access to <strong>Public</strong></span></li>
+          <li><span class="number">3</span><span>Copy the share link. It should look like <code>codehs.com/share/id/…/run</code>.</span></li>
+          <li><span class="number">4</span><span>Come back here and paste that link on the next step.</span></li>
+        </ol>
+        <div class="notice"><span aria-hidden="true">ⓘ</span><p><strong>The program must be public.</strong> Private links may not work.</p></div>
+      </div>
+
+      <div class="step-panel" id="step-2" data-step="2" hidden>
+        <div class="step-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
+     height="24px"
+     viewBox="0 -960 960 960"
+     width="24px"
+     fill="#6b8f71">
+  <path d="M440-160v-326L336-382l-56-58 200-200 200 200-56 58-104-104v326h-80ZM160-600v-120q0-33 23.5-56.5T240-800h480q33 0 56.5 23.5T800-720v120h-80v-120H240v120h-80Z"/>
+</svg></div>
+        <h2>Paste your share URL</h2>
+        <p class="step-lead">Paste your public share link.</p>
+        <div class="notice"><span aria-hidden="true">ⓘ</span><p>The API may detect the program author’s CodeHS user ID and display name. These fields are only forwarded to a data service if one is configured by the site owner.</p></div>
+        <label class="field-label" for="share-url">CodeHS share URL</label>
+        <div class="paste-row"><input id="share-url" type="url" inputmode="url" autocomplete="url" placeholder="Paste your CodeHS share link" spellcheck="false"><button type="button" id="paste-button" class="icon-button" aria-label="Paste from clipboard" title="Paste from clipboard">
+            <img src="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/icons/outline/clipboard.svg" alt="" aria-hidden="true">
+          </button></div>
+        
+        <p class="validation" id="url-error" role="alert" hidden></p>
+        
+      </div>
+
+      <div class="step-panel" id="step-3" data-step="3" hidden>
+        <div class="step-icon" aria-hidden="true">✓</div>
+        <h2>Your program code</h2>
+        <p class="step-lead">Your decoded source code will appear below.</p>
+        <div class="result-status" id="result-status" role="status" aria-live="polite">
+          <span class="status-dot"></span><span id="status-text">Ready when you are.</span>
+        </div>
+        <div class="result-meta" id="result-meta" hidden></div>
+        <div class="notice fetch-delay-note" id="fetch-delay-note" hidden><span aria-hidden="true">ⓘ</span><p><strong>New share link?</strong> If fetching fails, newly created links can take a little time to become available. Wait a moment, then try again.</p></div>
+        <div class="output-wrap">
+          <div class="output-heading"><label for="output">Decoded solution</label><button type="button" class="icon-button copy-code-button" id="copy-code" aria-label="Copy code" title="Copy code" disabled>
+            <img src="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/icons/outline/copy.svg" alt="" aria-hidden="true">
+            <span>Copy</span>
+          </button></div>
+          <pre id="output" tabindex="0"><code>Your decoded code will appear here.</code></pre>
+        </div>
+        <pre id="debug-output" hidden></pre>
+        
+      </div>
+
+      <div class="wizard-footer">
+        <button type="button" id="back-button" class="button button-secondary" disabled>← Back</button>
+        <span class="footer-hint" id="footer-hint"></span>
+        <button type="button" id="next-button" class="button button-primary">Next step →</button>
+      </div>
+    </section>
+    
+  </main>
+
+  
+</body>
+</html>
