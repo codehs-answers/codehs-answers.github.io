@@ -1,0 +1,39 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Blue rounded background -->
+  <rect width="64" height="64" rx="15" fill="#3287e8"/>
+
+  <!-- White inset panel -->
+  <rect x="6" y="6" width="52" height="52" rx="12" fill="#ffffff"/>
+
+  <!-- Letter C -->
+  <path
+    d="M40 20 A17 17 0 1 0 40 44"
+    fill="none"
+    stroke="#173c70"
+    stroke-width="7"
+    stroke-linecap="round"
+  />
+
+  <!-- Green code badge -->
+  <rect
+    x="34" y="39"
+    width="28" height="21"
+    rx="7"
+    fill="#35aa79"
+    stroke="#ffffff"
+    stroke-width="1.5"
+  />
+
+  <!-- Code symbol -->
+  <path
+    d="M43 45 L39 49.5 L43 54
+       M53 45 L57 49.5 L53 54
+       M51 44 L46 55"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="2.3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
